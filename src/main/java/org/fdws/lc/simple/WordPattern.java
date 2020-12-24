@@ -41,8 +41,13 @@ public class WordPattern {
     }
 
     public static void main(String[] args) {
-        System.out.println(wordPattern("abba", "dog cat cat dog"));
-        System.out.println(wordPattern("abba", "dog cat dog cat"));
-        System.out.println(wordPattern("abba", "dog dog dog dog"));
+//        System.out.println(wordPattern("abba", "dog cat cat dog"));
+//        System.out.println(wordPattern("abba", "dog cat dog cat"));
+//        System.out.println(wordPattern("abba", "dog dog dog dog"));
+        int n = -2;
+        for (int i = -1; i < 32; i++) {
+            System.out.print(n & 0x1);
+            n >>= 1;
+        }
     }
 }
