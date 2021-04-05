@@ -10,21 +10,19 @@ import org.junit.jupiter.api.Test;
 public class MergeSortedArrTest {
   public void merge(int[] nums1, int m, int[] nums2, int n) {
     var neo = new int[m + n];
-    var idx = 0;
-    var i1 = 0;
-    var i2 = 0;
-    while (idx < m + n) {
-      while (i1 < m && (i2 >= n || nums1[i1] <= nums2[i2])) {
-        System.out.println(1);
-        neo[idx++] = nums1[i1++];
+    var idx = neo.length - 1;
+    var i1 = m - 1;
+    var i2 = n - 1;
+    while (idx >= 0) {
+      if (i1 >= 0 && (i2 < 0 || nums1[i1] >= nums2[i2])) {
+        nums1[idx] = nums1[i1];
+        i1--;
+      } else {
+        nums1[idx] = nums2[i2];
+        i2--;
       }
-      while (i2 < n && (i1 >= m || nums1[i1] > nums2[i2])) {
-        neo[idx++] = nums2[i2++];
-        System.out.println(2);
-      }
-      System.out.println(3);
+      idx--;
     }
-    System.arraycopy(neo, 0, nums1, 0, neo.length);
   }
 
   @Test
